@@ -82,8 +82,8 @@ function App() {
                     style={{ width: '80px', height: '80px', border: '4px solid #e8f0fe', borderTopColor: 'var(--primary)', borderRadius: '50%' }}
                   />
                 </div>
-                <h2 style={{ mt: '24px', color: 'var(--primary)' }}>Curating your career path...</h2>
-                <p>Analyzing {projectIdeas.length} industry-grade project blueprints</p>
+                <h2 style={{ mt: '24px', color: 'var(--primary)' }}>Engineering your future...</h2>
+                <p>Synthesizing {projectIdeas.length} real-world software blueprints for your profile</p>
               </motion.div>
             )}
 

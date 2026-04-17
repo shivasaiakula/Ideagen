@@ -1,14 +1,17 @@
 # IdeaGen: Industrial Project Blueprint Engine
 
-IdeaGen is a premium, AI-powered project recommendation platform designed for students. It transforms the project selection process from overwhelming to actionable by matching students with industry-grade project ideas based on their academic level, domain of interest, and desired difficulty.
+**Stop guessing, start building.** IdeaGen is the unfair advantage for students who build for the real world. It transforms project selection from overwhelming to actionable by matching you with industry-grade software blueprints tailored to your academic focus and technical level.
+
+## ✨ Why IdeaGen?
+Unlike generic lists, IdeaGen provides a curated path from conception to deployment, ensuring your portfolio stands out to employers.
 
 ## ✨ Key Features
 
-- **🎯 Smart Matching**: A tailored scoring engine that recommends projects specific to your skillset.
-- **🗺️ Interactive Roadmaps**: Every project comes with a phased development plan and full tech stack blueprints.
-- **✨ Premium UI/UX**: Modern, glassmorphic design system built with React and Framer Motion.
-- **🪄 AI Prompt Library**: One-click generation of engineered prompts to kickstart your implementation with any LLM.
-- **📚 Project Library**: Explore a diverse range of 10+ industry-standard project templates.
+- **🎯 Precision Matching**: A tailored scoring engine that aligns your skills with professional-tier project complexity.
+- **🗺️ Industrial Roadmaps**: Every project includes a phased execution plan and full architectural blueprints.
+- **✨ High-Fidelity UI/UX**: A modern, glassmorphic workspace built for focus and speed.
+- **🪄 Instant AI Prompts**: One-click generation of engineered prompts to kickstart your implementation with any LLM.
+- **📚 Curated Library**: Explore our hall of fame—10+ industry-standard project templates ready for your signature.
 
 ## 🚀 Getting Started
 

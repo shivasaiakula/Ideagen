@@ -5,6 +5,7 @@ const Sidebar = ({ activeTab, onTabChange, user, onLogout }) => {
   const menuItems = [
     { id: 'discover', icon: Lightbulb, label: 'Discover' },
     { id: 'explore', icon: Compass, label: 'Explore Ideas' },
+    { id: 'dashboard', icon: Home, label: 'My Projects' },
     { id: 'planner', icon: Target, label: 'Roadmap' },
   ];
 

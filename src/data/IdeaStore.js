@@ -19,11 +19,12 @@ export const projectIdeas = [
     domain: 'AI',
     level: 'Undergraduate',
     type: 'Major Project',
+    skills: { frontend: 30, backend: 30, ai: 30, uiux: 10 },
     roadmap: [
-      { title: 'Research & Data Collection', desc: 'Identify local recycling rules and gather images for AI training.' },
-      { title: 'MVP Development', desc: 'Setup basic React app and integrate Google Maps.' },
-      { title: 'AI Integration', desc: 'Implement the waste categorization model using PyTorch.' },
-      { title: 'Testing & Deployment', desc: 'Beta test with community members and deploy to cloud.' }
+      { title: 'Research & Data Collection', steps: ['Identify local recycling rules', 'Gather images for AI training.'] },
+      { title: 'MVP Development', steps: ['Setup basic React app', 'Integrate Google Maps.'] },
+      { title: 'AI Integration', steps: ['Implement the waste categorization model using PyTorch.'] },
+      { title: 'Testing & Deployment', steps: ['Beta test with community members', 'Deploy to cloud.'] }
     ]
   },
   {
@@ -46,11 +47,12 @@ export const projectIdeas = [
     domain: 'Web Development',
     level: 'Postgraduate',
     type: 'Final-year Project',
+    skills: { frontend: 40, backend: 30, network: 20, uiux: 10 },
     roadmap: [
-      { title: 'Architecture Design', desc: 'Plan the WebRTC signaling flow and DB schema.' },
-      { title: 'Signaling Server', desc: 'Build the Socket.io server for connection handling.' },
-      { title: 'Video Implementation', desc: 'Develop the WebRTC peer connection logic.' },
-      { title: 'Mentorship Features', desc: 'Add ratings, profiles, and scheduling.' }
+      { title: 'Architecture Design', steps: ['Plan the WebRTC signaling flow', 'Design DB schema.'] },
+      { title: 'Signaling Server', steps: ['Build the Socket.io server for connection handling.'] },
+      { title: 'Video Implementation', steps: ['Develop the WebRTC peer connection logic.'] },
+      { title: 'Mentorship Features', steps: ['Add ratings, profiles, and scheduling.'] }
     ]
   },
   {
@@ -73,11 +75,12 @@ export const projectIdeas = [
     domain: 'IoT',
     level: 'Diploma',
     type: 'Major Project',
+    skills: { hardware: 50, backend: 20, frontend: 20, uiux: 10 },
     roadmap: [
-      { title: 'Hardware Setup', desc: 'Connect sensors to ESP32 and test readings.' },
-      { title: 'Data Pipeline', desc: 'Setup MQTT broker and stream data to the backend.' },
-      { title: 'Dashboard Development', desc: 'Create the React UI for data visualization.' },
-      { title: 'Automation Logic', desc: 'Program the relay triggers for irrigation.' }
+      { title: 'Hardware Setup', steps: ['Connect sensors to ESP32', 'Test readings.'] },
+      { title: 'Data Pipeline', steps: ['Setup MQTT broker', 'Stream data to the backend.'] },
+      { title: 'Dashboard Development', steps: ['Create the React UI for data visualization.'] },
+      { title: 'Automation Logic', steps: ['Program the relay triggers for irrigation.'] }
     ]
   },
   {
@@ -100,11 +103,12 @@ export const projectIdeas = [
     domain: 'Cybersecurity',
     level: 'Postgraduate',
     type: 'Final-year Project',
+    skills: { security: 50, backend: 30, frontend: 10, uiux: 10 },
     roadmap: [
-      { title: 'Scope Definition', desc: 'Identify which OWASP vulnerabilities to target.' },
-      { title: 'Scanner Engine', desc: 'Write the Python scripts for automated payloads.' },
-      { title: 'Reporting Module', desc: 'Format results into PDF/HTML reports.' },
-      { title: 'GUI Development', desc: 'Build the React dashboard for controlling scans.' }
+      { title: 'Scope Definition', steps: ['Identify which OWASP vulnerabilities to target.'] },
+      { title: 'Scanner Engine', steps: ['Write the Python scripts for automated payloads.'] },
+      { title: 'Reporting Module', steps: ['Format results into PDF/HTML reports.'] },
+      { title: 'GUI Development', steps: ['Build the React dashboard for controlling scans.'] }
     ]
   },
   {
@@ -127,11 +131,12 @@ export const projectIdeas = [
     domain: 'Data Science',
     level: 'School',
     type: 'Mini Project',
+    skills: { frontend: 60, uiux: 20, backend: 10, ai: 10 },
     roadmap: [
-      { title: 'Basic UI', desc: 'Design the input forms and layout.' },
-      { title: 'Data Processing', desc: 'Implement CSV parsing and data cleaning logic.' },
-      { title: 'D3 Integration', desc: 'Create the dynamic bar and pie charts.' },
-      { title: 'Persistence', desc: 'Add local storage or Firebase to save data.' }
+      { title: 'Basic UI', steps: ['Design the input forms and layout.'] },
+      { title: 'Data Processing', steps: ['Implement CSV parsing and data cleaning logic.'] },
+      { title: 'D3 Integration', steps: ['Create the dynamic bar and pie charts.'] },
+      { title: 'Persistence', steps: ['Add local storage or Firebase to save data.'] }
     ]
   },
   {
@@ -154,11 +159,12 @@ export const projectIdeas = [
     domain: 'AI, Web Development',
     level: 'Undergraduate',
     type: 'Final-year Project',
+    skills: { backend: 40, ai: 30, frontend: 20, uiux: 10 },
     roadmap: [
-      { title: 'Dataset Prep', desc: 'Acquire and clean medical symptom datasets.' },
-      { title: 'NLP Model', desc: 'Train the classification model using TensorFlow.' },
-      { title: 'Chatbot UI', desc: 'Develop the conversational interface in React.' },
-      { title: 'Security Setup', desc: 'Implement encryption for user medical data.' }
+      { title: 'Dataset Prep', steps: ['Acquire and clean medical symptom datasets.'] },
+      { title: 'NLP Model', steps: ['Train the classification model using TensorFlow.'] },
+      { title: 'Chatbot UI', steps: ['Develop the conversational interface in React.'] },
+      { title: 'Security Setup', steps: ['Implement encryption for user medical data.'] }
     ]
   }
 ];

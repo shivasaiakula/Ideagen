@@ -5,16 +5,66 @@ import ResultCard from './components/ResultCard';
 import RoadmapView from './components/RoadmapView';
 import AuthView from './components/AuthView';
 import MentorChat from './components/MentorChat';
+import DashboardView from './components/DashboardView';
 import { projectIdeas } from './data/IdeaStore';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
-  const [user, setUser] = useState(null);
+  console.log("IdeaGen App: Initializing state...");
+  const [user, setUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('ideagen_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch (e) {
+      console.error("Failed to parse user from localStorage", e);
+      return null;
+    }
+  });
   const [activeTab, setActiveTab] = useState('discover');
   const [userData, setUserData] = useState(null);
   const [recommendations, setRecommendations] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [joinedProjects, setJoinedProjects] = useState(() => {
+    const saved = localStorage.getItem('ideagen_joined');
+    return saved ? JSON.parse(saved) : {};
+  });
+  const [progress, setProgress] = useState(() => {
+    const saved = localStorage.getItem('ideagen_progress');
+    return saved ? JSON.parse(saved) : {};
+  });
+
+  // Persistence Effects
+  useEffect(() => {
+    if (user) localStorage.setItem('ideagen_user', JSON.stringify(user));
+    else localStorage.removeItem('ideagen_user');
+  }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem('ideagen_joined', JSON.stringify(joinedProjects));
+  }, [joinedProjects]);
+
+  useEffect(() => {
+    localStorage.setItem('ideagen_progress', JSON.stringify(progress));
+  }, [progress]);
+
+  const handleJoinProject = (project) => {
+    setJoinedProjects(prev => ({ ...prev, [project.id]: project }));
+    if (!progress[project.id]) {
+      setProgress(prev => ({ ...prev, [project.id]: {} }));
+    }
+    setActiveTab('dashboard');
+  };
+
+  const handleToggleStep = (projectId, stepKey) => {
+    setProgress(prev => ({
+      ...prev,
+      [projectId]: {
+        ...prev[projectId],
+        [stepKey]: !prev[projectId]?.[stepKey]
+      }
+    }));
+  };
 
   const handleComplete = (answers) => {
     setUserData(answers);
@@ -142,9 +192,29 @@ function App() {
                   </motion.div>
                 )}
 
+                {activeTab === 'dashboard' && (
+                  <motion.div key="dashboard" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                    <DashboardView 
+                      joinedProjects={joinedProjects} 
+                      progress={progress} 
+                      onSelectProject={(p) => {
+                        setSelectedProject(p);
+                        setActiveTab('planner');
+                      }} 
+                    />
+                  </motion.div>
+                )}
+
                 {activeTab === 'planner' && (
                   <motion.div key="planner" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                    <RoadmapView project={selectedProject} onReset={() => setActiveTab('discover')} />
+                    <RoadmapView 
+                      project={selectedProject} 
+                      onReset={() => setActiveTab('discover')} 
+                      onJoin={handleJoinProject}
+                      isJoined={!!joinedProjects[selectedProject?.id]}
+                      progress={progress[selectedProject?.id] || {}}
+                      onToggleStep={handleToggleStep}
+                    />
                   </motion.div>
                 )}
               </>

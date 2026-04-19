@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { User, Lock, Mail, ArrowRight, Github, Chrome } from 'lucide-react';
+import { User, Lock, Mail, ArrowRight, Globe } from 'lucide-react';
 
 const AuthView = ({ onLogin }) => {
   const [isLogin, setIsLogin] = useState(true);
@@ -8,8 +8,35 @@ const AuthView = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate auth
-    onLogin({ name: formData.name || 'Student', email: formData.email });
+    
+    // Simulate real persistence
+    const users = JSON.parse(localStorage.getItem('ideagen_registered_users') || '[]');
+    
+    if (isLogin) {
+      const existingUser = users.find(u => u.email === formData.email && u.password === formData.password);
+      if (existingUser) {
+        onLogin(existingUser);
+      } else {
+        alert('Invalid email or password');
+      }
+    } else {
+      const alreadyExists = users.some(u => u.email === formData.email);
+      if (alreadyExists) {
+        alert('Email already registered');
+        return;
+      }
+      
+      const newUser = { 
+        name: formData.name || 'Student', 
+        email: formData.email, 
+        password: formData.password,
+        registeredAt: new Date().toISOString() 
+      };
+      
+      users.push(newUser);
+      localStorage.setItem('ideagen_registered_users', JSON.stringify(users));
+      onLogin(newUser);
+    }
   };
 
   return (
@@ -79,8 +106,8 @@ const AuthView = ({ onLogin }) => {
         </div>
 
         <div className="social-auth">
-          <button className="btn btn-outline social-btn"><Github size={20} /></button>
-          <button className="btn btn-outline social-btn"><Chrome size={20} /></button>
+          <button className="btn btn-outline social-btn"><Globe size={20} /> GitHub</button>
+          <button className="btn btn-outline social-btn"><Globe size={20} /> Google</button>
         </div>
 
         <p className="auth-footer">

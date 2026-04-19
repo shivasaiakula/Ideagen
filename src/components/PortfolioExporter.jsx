@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FileText, Copy, Check, Download, ExternalLink, Linkedin } from 'lucide-react';
+import { FileText, Copy, Check, Download, ExternalLink, Globe } from 'lucide-react';
 
 const PortfolioExporter = ({ project, user }) => {
   const [isCopied, setIsCopied] = useState(false);
@@ -32,7 +32,7 @@ Transformed high-level requirements into a production-ready system following the
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
         <div>
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Linkedin size={20} color="#0077b5" /> Portfolio Exporter
+            <Globe size={20} color="#0077b5" /> Portfolio Exporter
           </h3>
           <p style={{ fontSize: '14px', color: '#64748b' }}>Generate a professional snippet for your Resume or LinkedIn.</p>
         </div>

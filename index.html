@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IdeaGen | Project Discovery Assistant</title>
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        fetch('http://localhost:3002/log', { method: 'POST', body: 'GLOBAL ERROR: ' + msg + '\n' + (error ? error.stack : '') }).catch(console.log);
+      };
+      window.addEventListener('unhandledrejection', function(event) {
+        fetch('http://localhost:3002/log', { method: 'POST', body: 'PROMISE ERROR: ' + event.reason }).catch(console.log);
+      });
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">

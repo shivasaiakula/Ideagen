@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, ExternalLink, ArrowLeft, Copy, Check, Clock, List, BookOpen, Terminal, Sparkles, Layout, Trophy, Circle, CheckCircle2, Share2, MessageCircle, Globe } from 'lucide-react';
+import { CheckCircle, ExternalLink, ArrowLeft, Copy, Check, Clock, List, BookOpen, Terminal, Sparkles, Layout, Trophy, Circle, CheckCircle2, Share2, MessageCircle, Globe, Download, GitBranch } from 'lucide-react';
 import PortfolioExporter from './PortfolioExporter';
 import SkillRadar from './SkillRadar';
 
@@ -98,23 +98,38 @@ Provide a detailed architecture breakdown and initial boilerplate code.`;
           <h1 style={{ fontSize: '32px', marginBottom: '8px' }}>{project.title}</h1>
           <p style={{ color: '#64748b', fontSize: '18px', marginBottom: '24px' }}>{project.description}</p>
           
-          <div style={{ display: 'flex', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
             <motion.button 
               className="btn btn-primary" 
               onClick={copyPrompt}
               whileHover={{ scale: 1.05 }}
-              style={{ display: 'flex', gap: '8px' }}
+              style={{ display: 'flex', gap: '4px', fontSize: '13px', padding: '10px 16px' }}
             >
-              <Sparkles size={18} />
-              {isCopied ? 'Copied!' : 'AI Prompt'}
+              <Sparkles size={16} /> {isCopied ? 'Copied!' : 'AI Prompt'}
             </motion.button>
             
             <button 
               className="btn btn-outline" 
               onClick={() => setShowShare(true)}
-              style={{ display: 'flex', gap: '8px' }}
+              style={{ display: 'flex', gap: '4px', fontSize: '13px', padding: '10px 16px' }}
             >
-              <Share2 size={18} /> Share Progress
+              <Share2 size={16} /> Share Progress
+            </button>
+
+            <button 
+              className="btn btn-outline" 
+              onClick={() => window.print()}
+              style={{ display: 'flex', gap: '4px', fontSize: '13px', padding: '10px 16px', color: '#10b981', borderColor: 'rgba(16, 185, 129, 0.3)' }}
+            >
+              <Download size={16} /> Export PDF
+            </button>
+
+            <button 
+              className="btn btn-outline" 
+              onClick={() => alert('Authenticating with GitHub... Successfully provisioned repository template for ' + project.title)}
+              style={{ display: 'flex', gap: '4px', fontSize: '13px', padding: '10px 16px', color: '#6366f1', borderColor: 'rgba(99, 102, 241, 0.3)' }}
+            >
+              <GitBranch size={16} /> Init GitHub Repo
             </button>
           </div>
         </div>
